@@ -1,18 +1,19 @@
 <#PSScriptInfo
-.VERSION 1.0.1
+.VERSION 1.0.2
 .GUID cafa37ba-9b0d-479e-8cb1-b5ca443fd1ab
-.AUTHOR brianbunke
+.AUTHOR Brian Bunke
 .DESCRIPTION Returns the elapsed execution time of the previous command (or any from Get-History).
-.COMPANYNAME
+.COMPANYNAME brianbunke
 .COPYRIGHT
 .TAGS history
-.LICENSEURI
-.PROJECTURI
+.LICENSEURI https://github.com/brianbunke/PSMisc/blob/master/LICENSE
+.PROJECTURI https://github.com/brianbunke/PSMisc
 .ICONURI
 .EXTERNALMODULEDEPENDENCIES
 .REQUIREDSCRIPTS
 .EXTERNALSCRIPTDEPENDENCIES
 .RELEASENOTES
+1.0.2 - Update PSGallery script metadata
 1.0.1 - Add additional help
 1.0.0 - Initial publish
 #>
