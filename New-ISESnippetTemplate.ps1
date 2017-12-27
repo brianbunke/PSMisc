@@ -52,14 +52,14 @@ function asdf {
     BEGIN {
     } #BEGIN
 
-    PROCESS
-        ForEach () {
+    PROCESS {
+        ForEach ($t in $Test) {
             # -WhatIf wrapper
             If ($PSCmdlet.ShouldProcess(
                 "Target",
                 "Operation"
             )) {
-
+                # WhatIf operation
             }
         } #ForEach
     } #PROCESS
