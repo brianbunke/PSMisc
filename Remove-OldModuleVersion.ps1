@@ -68,8 +68,8 @@ Assumes that modules are stored at that location, instead of further down.
 
             If (($ChildVersions = Get-ChildItem $Module.FullName -Directory).Count -gt 1) {
                 $ChildVersions = $ChildVersions |
-                    Select FullName,@{n='Version';e={[version]$_.BaseName}} |
-                    Sort Version -Descending
+                    Select-Object FullName,@{n='Version';e={[version]$_.BaseName}} |
+                    Sort-Object Version -Descending
 
                 for ($i = 1; $i -lt $ChildVersions.Count; $i++) {
                     If ($ChildVersions[$i].Version -eq $null) {
