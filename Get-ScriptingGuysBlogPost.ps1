@@ -29,21 +29,16 @@
     .LINK
     http://www.brianbunke.com
     #>
-    [CmdletBinding(
-        #DefaultParameterSetName = 'SetA'
-    )]
+    [CmdletBinding()]
     [OutputType([PSCustomObject])]
 
     param (
         # Limit results to posts with the specified tag
         # Supports only one tag at a time
-        [Parameter(
-            #ParameterSetName = 'SetA'
-        )]
         [string]$Tag,
 
         # Return all results by digging through pages, 10 posts at a time
-        # WARNING: Doing this with no tag will take a long time!
+        # WARNING: Doing this with no tag is over 500 pages!
         [switch]$All
     )
 
@@ -72,12 +67,14 @@
             [xml]$xml = $iwr.Content
 
             ForEach ($post in $xml.rss.channel.item) {
-                [PSCustomObject]@{
+                $newObject = [PSCustomObject]@{
                     Title       = $post.title
                     Link        = $post.link
                     Date        = $post.pubDate -as [DateTime]
                     Description = $post.description.'#cdata-section'
-                } | Add-ArrayObject $ResultList
+                }
+
+                [void]$ResultList.Add($newObject)
             }
         } Else {
             Write-Verbose "Invoke-WebRequest found no results on page $i"
